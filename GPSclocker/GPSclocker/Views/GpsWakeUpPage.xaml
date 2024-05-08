@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:maps="clr-namespace:Xamarin.Forms.GoogleMaps;assembly=Xamarin.Forms.GoogleMaps" 
+             x:Class="GPSclocker.Views.GpsWakeUpPage"
+             BackgroundColor="#504087">
+
+
+    <ContentPage.Resources>
+        <Style TargetType="Button">
+            <Setter Property="BackgroundColor" Value="#00E6FF"/>
+            <Setter Property="TextColor" Value="White"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="FontFamily" Value="Roboto"/>
+            <Setter Property="CornerRadius" Value="50"/>
+            <Setter Property="HeightRequest" Value="60"/>
+            <Setter Property="Margin" Value="40,20,40,0"/>
+            <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="TextColor" Value="#ffffff"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="VerticalOptions" Value="Center"/>
+            <Setter Property="Margin" Value="0,0,0,10"/>
+            <Setter Property="HorizontalTextAlignment" Value="Center"/>
+        </Style>
+        <Style TargetType="Frame" x:Key="RoundedFrameStyle">
+            <Setter Property="CornerRadius" Value="40"/>
+            <!-- Другие свойства стиля, если необходимо -->
+        </Style>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.5*" />
+                <RowDefinition Height="12*" />
+                <RowDefinition Height="3.5*" />
+            </Grid.RowDefinitions>
+
+            <StackLayout Grid.Row="0" Margin="25,10">
+                <Label x:Name="Gps" Text="{Binding Adress, Mode=TwoWay}" FontSize="15" x:FieldModifier="public" Margin="25,0"/>
+            </StackLayout>
+            <Frame Grid.Row="1" Margin="40,40,40,0" CornerRadius="50">
+                
+                <maps:Map x:Name="map" Scale="1.14" />
+            </Frame>
+
+
+            <StackLayout Grid.Row="2">
+                <Button Text="Выключить" BackgroundColor="#a799d4" Clicked="OFF_Button"/>
+                <Label x:Name="Desription" Text="{Binding Description, Mode=TwoWay}" x:FieldModifier="public" Margin="25,10,25,0"/>
+                
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

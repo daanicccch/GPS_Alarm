@@ -1,0 +1,1 @@
+D:\c#\GPSclocker\GPSclocker\GPSclocker.UWP\GPSclocker.UWP.csproj;x86
