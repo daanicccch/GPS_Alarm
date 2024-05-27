@@ -1,5 +1,5 @@
 <p align="center">
-      <img src="https://i.ibb.co/your-image-link.png" width="726">
+      <img src="clock.jpg" width="400">
 </p>
 <p align="center">
    <img src="https://img.shields.io/badge/C%23-8.0-blue" alt="C# Version">
