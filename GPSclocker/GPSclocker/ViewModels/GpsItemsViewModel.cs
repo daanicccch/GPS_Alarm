@@ -136,7 +136,6 @@ namespace GPSclocker.ViewModels
                 return;
 
 
-
             await Shell.Current.GoToAsync($"{nameof(GpsItemDetailPage)}?{nameof(GpsItemDetailViewModel.ItemId)}={item.Id}");
         }
     }

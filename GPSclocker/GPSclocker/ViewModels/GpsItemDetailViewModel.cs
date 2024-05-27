@@ -202,16 +202,23 @@ namespace GPSclocker.ViewModels
             try
             {
                 var item = await DataStore.GetItemAsync(itemId);
-                Id = item.Id;
-                Adress = item.Adress;
-                Description = item.Description;
-                var position = new Position(item.Latitude, item.Longitude);
-                GetLocationAsync(position);
-                ShowCurrentLocationOnMap(position);
+                if (item != null)
+                {
+                    Id = item.Id;
+                    Adress = item.Adress;
+                    Description = item.Description;
+                    var position = new Position(item.Latitude, item.Longitude);
+                    GetLocationAsync(position);
+                    ShowCurrentLocationOnMap(position);
+                }
+                else
+                {
+                    Debug.WriteLine("Item is null.");
+                }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                Debug.WriteLine("Failed to Load Item");
+                Debug.WriteLine($"Error loading item: {ex.Message}");
             }
         }
     }

@@ -14,15 +14,6 @@ namespace GPSclocker.Services
 {
     public class GpsAlarmService
     {
-        private readonly INotificationService notificationService;
-        public GpsAlarmService()
-        {
-
-        }
-        public GpsAlarmService(INotificationService notificationService)
-        {
-            this.notificationService = notificationService;
-        }
         private bool isRunning = false;
         public async Task SetAlarmByLocation(GpsItem alarm)
         {
@@ -51,11 +42,6 @@ namespace GPSclocker.Services
                     isRunning = false; 
                 }
             }
-        }
-
-        public async void RunGpsWakeUpPage(GpsItem alarm)
-        {
-            await Shell.Current.GoToAsync($"{nameof(GpsWakeUpPage)}?{nameof(GpsWakeUpPageViewModel.ItemId)}={alarm.Id}");
         }
 
         public void CancelAlarmByLocation(GpsItem alarm)

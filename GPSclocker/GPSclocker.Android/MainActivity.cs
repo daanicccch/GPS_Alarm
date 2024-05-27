@@ -55,19 +55,19 @@ namespace GPSclocker.Droid
             }
             foreach (var item in gpsItems)
             {
-                SetAlarmByLocation(item);    
+                SetAlarmByLocation(item);
             }
 
-       
+
         }
         public async Task SetAlarmByLocation(GpsItem alarm)
         {
 
             Location alarmLocation = new Location(alarm.Latitude, alarm.Longitude);
-            double distanceThreshold = 0.1; 
+            double distanceThreshold = 0.1;
 
 
-            await Task.Delay(TimeSpan.FromSeconds(3)); 
+            await Task.Delay(TimeSpan.FromSeconds(3));
 
             Location currentLocation = await GetDeviceLocation();
 
@@ -96,15 +96,15 @@ namespace GPSclocker.Droid
             {
                 if (alarm.IsEnabled)
                 {
-                        alarm.IsEnabled = false;
-                        SendNotification("Будильник", alarm.Time.ToString(@"hh\:mm"));
+                    alarm.IsEnabled = false;
+                    SendNotification("Будильник", alarm.Time.ToString(@"hh\:mm"));
                 }
             });
         }
         private async Task<Location> GetDeviceLocation()
         {
-                var location = await Geolocation.GetLastKnownLocationAsync();
-                return location;
+            var location = await Geolocation.GetLastKnownLocationAsync();
+            return location;
         }
         // Метод для создания канала уведомлений
         private void CreateNotificationChannel()

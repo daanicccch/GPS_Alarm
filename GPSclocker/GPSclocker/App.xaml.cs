@@ -23,7 +23,7 @@ namespace GPSclocker
         {
         }
 
-        protected override async void OnSleep()
+        protected override void OnSleep()
         {
             
         }
